@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   public record Usuario(String username, String password, Set<String> roles) {};
 
   public static Usuario getById(String username) {
-    // "secreto" => [BCrypt] => "$2a$10$56VCAiApLO8NQYeOPiu2De/EBC5RWrTZvLl7uoeC3r7iXinRR1iiq"
+    // "secreto" => [BCrypt] => "$2a$12$9CdcqPEC117w3KGTlOWMuu6qrOlts6IyTnjhOY.nKFXxKy2J46E4e"
     var password = "$2a$12$9CdcqPEC117w3KGTlOWMuu6qrOlts6IyTnjhOY.nKFXxKy2J46E4e";
     Usuario sermaluc = new Usuario(
         "sermaluc@gmail.com",

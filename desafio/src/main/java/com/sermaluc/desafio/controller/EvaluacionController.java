@@ -27,8 +27,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping
-//@RequestMapping(value = "/api/evaluacion")
+//@RequestMapping
+@RequestMapping(value = "/api/evaluacion")
 public class EvaluacionController {
 
     private static final Logger log = LoggerFactory.getLogger(EvaluacionController.class);
@@ -49,8 +49,7 @@ public class EvaluacionController {
         this.userService = userService;
     }
 
-    //@PostMapping("/singup")
-    @PostMapping(value = "/singup", consumes="application/json", produces = { "*/*" })
+    @PostMapping("/singup")
     public ResponseEntity<TokenInfo> authenticate(@RequestBody UserRequest userRequest) {
         log.info("Autenticando al usuario {}", userRequest.getEmail());
 
@@ -68,7 +67,6 @@ public class EvaluacionController {
 
     @GetMapping(value = "/user-by-email", consumes="application/json", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUsrByEmail(@RequestBody UserRequest userRequest) {
-
         User user = userService.getUserByEmail(userRequest);
         UserResponse userResponse = new UserResponse(user);
         return ResponseEntity
